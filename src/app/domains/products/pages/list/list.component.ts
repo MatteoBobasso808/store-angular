@@ -19,19 +19,22 @@ export class ListComponent {
         id: Date.now(),
         title: 'Producto 1',
         price: 100,
-        img: 'https://picsum.photos/640/640?r=2'
+        img: 'https://picsum.photos/640/640?r=2',
+        creationAt: new Date().toISOString()
       },
       {
         id: Date.now(),
         title: 'Producto 2',
         price: 200,
-        img: 'https://picsum.photos/640/640?r=5'
+        img: 'https://picsum.photos/640/640?r=5',
+        creationAt: new Date().toISOString()
       },
       {
         id: Date.now(),
         title: 'Producto 3',
         price: 200,
-        img: 'https://picsum.photos/640/640?r=10'
+        img: 'https://picsum.photos/640/640?r=10',
+        creationAt: new Date().toISOString()
       }
     ];
     this.products.set(initProducts);
