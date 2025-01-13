@@ -11,7 +11,7 @@ import {RouterLinkWithHref} from '@angular/router';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, ProductComponent, HeaderComponent, RouterLinkWithHref],
+  imports: [CommonModule, ProductComponent, RouterLinkWithHref],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
