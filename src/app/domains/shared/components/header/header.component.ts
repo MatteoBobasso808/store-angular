@@ -1,6 +1,7 @@
-import {Component, Input, signal, SimpleChanges} from '@angular/core';
+import {Component, inject, Input, signal, SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Product} from '../../models/product.module';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,21 +11,11 @@ import {Product} from '../../models/product.module';
 })
 export class HeaderComponent {
   hideSideMenu = signal(true);
-  @Input({required: true}) cart: Product[] = [];
-  total = signal(0);
+  private cartService = inject(CartService);
+  cart = this.cartService.cart;
+  total = this.cartService.total
 
   toggleSideMenu(){
     this.hideSideMenu.update(prevState => !prevState);
-  }
-
-  ngOnChanges(changes: SimpleChanges){
-    const cart = changes['cart'];
-    if(cart){
-      this.total.set(this.getTotalPrice());
-    }
-  }
-
-  getTotalPrice() {
-    return this.cart.reduce((total, product) => total + product.price, 0);
   }
 }
